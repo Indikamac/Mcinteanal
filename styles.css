@@ -179,7 +179,7 @@ input {
 footer {
     text-align: center; /* Center-align the text */
     font-weight: bold; /* Make the text bold */
-    font-size: 41px; /* Adjust font size if needed */
+    font-size: 12px; /* Adjust font size if needed */
     margin-top: 20px; /* Add space above the footer */
     color: #333; /* Set text color (optional) */
 }
