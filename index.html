@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="logo.png" alt="Mac Internal Logo" class="logo">
+            <h2>Access Anywhere</h2>
+            
+            <form id="loginForm">
+                <label for="username">User Name</label>
+                <input type="text" id="username" placeholder="Enter Username">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="links">
+                <a href="#">Forgot Password or Username?</a>
+                <a href="#" id="signupLink">Sign Up Here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup-container hidden" id="signupForm">
+        <h2>ලියාපදිංචි වීම</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label>1. යොමු අංකය :</label>
+                <input type="text" id="referenceNumber" placeholder="යොමු අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>2. හැදුනුම් පත් අංකය :</label>
+                <input type="text" id="idNumber" placeholder="හැදුනුම් පත් අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>3. සම්පුර්ණ නම :</label>
+                <input type="text" id="fullName" placeholder="සම්පුර්ණ නම ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>4. ස්ථිර ලිපිනය :</label>
+                <input type="text" id="address" placeholder="ස්ථිර ලිපිනය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>5. දිස්ත්‍රික්කය :</label>
+                <input type="text" id="district" placeholder="දිස්ත්‍රික්කය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>6. විද්‍යුත් ලිපිනය :</label>
+                <input type="email" id="email" placeholder="විද්‍යුත් ලිපිනය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>7. දුරකථන අංක -1 :</label>
+                <input type="text" id="phone1" placeholder="දුරකථන අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>දුරකථන අංක -2 :</label>
+                <input type="text" id="phone2" placeholder="දුරකථන අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>8. ලබාගන්නා කොටස් ප්‍රමාණය :</label>
+                <input type="number" id="shares" placeholder="කොටස් ප්‍රමාණය ඇතුළත් කරන්න" oninput="calculatePrice()">
+            </div>
+            <div class="form-group">
+                <label>මිල : රු.</label>
+                <input type="text" id="price" readonly placeholder="මිල ස්වයංක්‍රීයව ගණනය වේ">
+            </div>
+            <div class="form-group">
+                <label>9. Username:</label>
+                <input type="text" id="regUsername" placeholder="Choose a username">
+            </div>
+            <div class="form-group">
+                <label>10. Password:</label>
+                <input type="password" id="regPassword" placeholder="Choose a password">
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="confirm">
+                <label> ඉහත මා විසින් ඇතුලත් කල තොරතුරු නිවැදි හා සත්‍ය බවත් සමිතියේ සමාජිකත්වය ලබා දෙන ලෙසත් ඉල්ලා සිටිමි.</label>
+            </div>
+            <button type="submit" class="submit-btn">යොමු කරන්න</button>
+            <button type="button" class="close-btn" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <footer>
+        © All rights reserved. Macinternal. Solution by Sasith and Sadiya  
+        Kotugoda (11390) - Sri Lanka
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
