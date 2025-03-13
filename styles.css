@@ -176,3 +176,10 @@ input {
 .close-btn:hover {
     background-color: #cc0000;
 }
+footer {
+    text-align: center; /* Center-align the text */
+    font-weight: bold; /* Make the text bold */
+    font-size: 14px; /* Adjust font size if needed */
+    margin-top: 20px; /* Add space above the footer */
+    color: #333; /* Set text color (optional) */
+}
