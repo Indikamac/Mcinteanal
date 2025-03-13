@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>User Dashboard</h2>
+        <div id="userData">
+            <!-- User data will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const formData = JSON.parse(localStorage.getItem("formData"));
+
+        if (formData) {
+            const userData = document.getElementById("userData");
+            let html = "";
+
+            for (const key in formData) {
+                if (key !== "password") { // Exclude password for security
+                    html += `
+                        <div class="data-item">
+                            <label>${key}:</label>
+                            <span>${formData[key]}</span>
+                        </div>
+                    `;
+                }
+            }
+
+            userData.innerHTML = html;
+        } else {
+            userData.innerHTML = "<p>No data found.</p>";
+        }
+    </script>
+</body>
+</html>

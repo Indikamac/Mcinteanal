@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Admin Page</h2>
+        <div id="adminData">
+            <!-- Collected data will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const formData = JSON.parse(localStorage.getItem("formData"));
+
+        if (formData) {
+            const adminData = document.getElementById("adminData");
+            let html = "";
+
+            for (const key in formData) {
+                html += `
+                    <div class="data-item">
+                        <label>${key}:</label>
+                        <span>${formData[key]}</span>
+                    </div>
+                `;
+            }
+
+            // Add "User Allowed" and "User Not Allowed" buttons
+            html += `
+                <div class="action-buttons">
+                    <button onclick="sendEmail('User Allowed')">User Allowed</button>
+                    <button onclick="sendEmail('User Not Allowed')">User Not Allowed</button>
+                </div>
+            `;
+
+            adminData.innerHTML = html;
+        } else {
+            adminData.innerHTML = "<p>No data found.</p>";
+        }
+
+        function sendEmail(action) {
+            const formData = JSON.parse(localStorage.getItem("formData"));
+            const email = formData.email;
+
+            // Simulate sending an email (for demo purposes)
+            alert(`Email sent to ${email}: ${action}`);
+        }
+    </script>
+</body>
+</html>
