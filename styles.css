@@ -1,185 +1,191 @@
+/* Existing Styles */
 body {
-    background-color: #D7F3D6;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
-.login-box {
+.container {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 300px;
+    text-align: center;
 }
 
-.logo {
-    width: 120px;
+.login-box .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-box label {
     display: block;
-    margin: 0 auto;
-}
-
-h2 {
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    text-align: Left;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin: 5px 0;
 }
 
-input {
+.login-box input {
+    width: 100%;
     padding: 10px;
-    margin: 5px 0;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.login-btn {
-    background: #4CAF50;
-    color: white;
+.login-box .login-btn {
+    width: 100%;
     padding: 10px;
+    background-color: #007bff;
+    color: white;
     border: none;
-    cursor: pointer;
-    font-size: 16px;
     border-radius: 5px;
-    margin-top: 10px;
+    cursor: pointer;
 }
 
-.login-btn:hover {
-    background: #45a049;
-}
-
-.links {
-    margin-top: 10px;
+.login-box .login-btn:hover {
+    background-color: #0056b3;
 }
 
 .links {
-    text-align: center; /* Center-align all text in the links container */
-    margin-top: 10px; /* Add some space above the links */
+    margin-top: 15px;
 }
 
 .links a {
-    display: block; /* Make each link a block element (stack vertically) */
-    color: #007BFF; /* Link color */
-    text-decoration: none; /* Remove underline */
-    font-size: 14px; /* Smaller font size */
-    margin-top: 5px; /* Add space between links */
+    display: block;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-decoration: none;
 }
 
-/* Sign Up Form Styles */
-.signup-container {
-    max-width: 60%;
-    max-height: 80vh;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up Form */
+.signup-container, .forgot-container {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: slideIn 0.5s ease-out;
-    overflow-y: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px; /* Adjust width as needed */
 }
 
-@keyframes slideIn {
-    from {
-        transform: translate(100%, -50%);
-    }
-    to {
-        transform: translate(-50%, -50%);
-    }
-}
-
-.hidden {
+.signup-container.hidden, .forgot-container.hidden {
     display: none;
 }
 
-.form-group {
-    display: flex;
-    align-items: center;
+.signup-container h2, .forgot-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-container .form-group, .forgot-container .form-group {
     margin-bottom: 15px;
 }
 
-.form-group label {
-    flex: 1;
-    margin-right: 10px;
-    font-size: 16px;
-    color: #333;
+.signup-container label, .forgot-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.form-group input {
-    flex: 2;
+.signup-container input, .forgot-container input {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-.form-group input:focus {
-    border-color: green;
-    outline: none;
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.checkbox-container input {
-    width: auto;
-    margin-right: 10px;
-}
-
-.submit-btn {
-    background-color: green;
+.signup-container .submit-btn, .forgot-container .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.signup-container .submit-btn:hover, .forgot-container .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.signup-container .close-btn, .forgot-container .close-btn {
     width: 100%;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.submit-btn:hover {
-    background-color: darkgreen;
-}
-
-.close-btn {
-    background-color: #ff4444;
+    padding: 10px;
+    background-color: #ff4d4d;
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    font-size: 16px;
+    margin-top: 10px;
 }
 
-.close-btn:hover {
-    background-color: #cc0000;
+.signup-container .close-btn:hover, .forgot-container .close-btn:hover {
+    background-color: #ff1a1a;
 }
+
+/* Confirmation Message */
+.confirmation-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+.confirmation-message.hidden {
+    display: none;
+}
+
+.confirmation-message p {
+    margin-bottom: 20px;
+}
+
+.confirmation-message .close-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirmation-message .close-btn:hover {
+    background-color: #ff1a1a;
+}
+
+/* Footer */
 footer {
-    text-align: center; /* Center-align the text */
-    font-weight: bold; /* Make the text bold */
-    font-size: 14px; /* Adjust font size if needed */
-    margin-top: 20px; /* Add space above the footer */
-    color: #333; /* Set text color (optional) */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ccc;
 }
