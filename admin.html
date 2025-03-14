@@ -3,54 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="admin-container">
-        <h2>Admin Page</h2>
-        <div id="adminData">
-            <!-- Collected data will be displayed here -->
+    <div class="container">
+        <div class="login-box">
+            <!-- Logo -->
+            <img src="Logo.png" alt="Mac Internal Logo" class="logo">
+            <h2>Access Anywhere</h2>
+            
+            <!-- Login Form -->
+            <form id="loginForm">
+                <label for="username">User Name</label>
+                <input type="text" id="username" placeholder="Enter Username">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <!-- Links -->
+            <div class="links">
+                <a href="#" id="forgotLink">Forgot Password or Username?</a>
+                <a href="#" id="signupLink">Sign Up Here</a>
+            </div>
         </div>
     </div>
 
+    <!-- Sign Up Form -->
+    <div class="signup-container hidden" id="signupForm">
+        <h2>ලියාපදිංචි වීම</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label>1. යොමු අංකය :</label>
+                <input type="text" id="referenceNumber" placeholder="යොමු අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>2. හැදුනුම් පත් අංකය :</label>
+                <input type="text" id="idNumber" placeholder="හැදුනුම් පත් අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>3. සම්පුර්ණ නම :</label>
+                <input type="text" id="fullName" placeholder="සම්පුර්ණ නම ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>4. ස්ථිර ලිපිනය :</label>
+                <input type="text" id="address" placeholder="ස්ථිර ලිපිනය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>5. දිස්ත්‍රික්කය :</label>
+                <input type="text" id="district" placeholder="දිස්ත්‍රික්කය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>6. විද්‍යුත් ලිපිනය :</label>
+                <input type="email" id="email" placeholder="විද්‍යුත් ලිපිනය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>7. දුරකථන අංක -1 :</label>
+                <input type="text" id="phone1" placeholder="දුරකථන අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>දුරකථන අංක -2 :</label>
+                <input type="text" id="phone2" placeholder="දුරකථන අංකය ඇතුළත් කරන්න">
+            </div>
+            <div class="form-group">
+                <label>8. ලබාගන්නා කොටස් ප්‍රමාණය :</label>
+                <input type="number" id="shares" placeholder="කොටස් ප්‍රමාණය ඇතුළත් කරන්න" oninput="calculatePrice()">
+            </div>
+            <div class="form-group">
+                <label>මිල : රු.</label>
+                <input type="text" id="price" readonly placeholder="මිල ස්වයංක්‍රීයව ගණනය වේ">
+            </div>
+            <div class="form-group">
+                <label>9. Username:</label>
+                <input type="text" id="regUsername" placeholder="Choose a username">
+            </div>
+            <div class="form-group">
+                <label>10. Password:</label>
+                <input type="password" id="regPassword" placeholder="Choose a password">
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="confirm">
+                <label> ඉහත මා විසින් ඇතුලත් කල තොරතුරු නිවැදි හා සත්‍ය බවත් සමිතියේ සමාජිකත්වය ලබා දෙන ලෙසත් ඉල්ලා සිටිමි.</label>
+            </div>
+            <button type="submit" class="submit-btn">යොමු කරන්න</button>
+            <button type="button" class="close-btn" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <!-- Forgot Password/Username Form -->
+    <div class="forgot-container hidden" id="forgotForm">
+        <h2>Forgot Password or Username?</h2>
+        <form id="forgotPasswordForm">
+            <div class="form-group">
+                <label for="forgotIdNumber">හැදුනුම් පත් අංකය (ID Number):</label>
+                <input type="text" id="forgotIdNumber" placeholder="Enter your ID Number" required>
+            </div>
+            <div class="form-group">
+                <label for="forgotPhone">දුරකථන අංකය (Phone Number):</label>
+                <input type="text" id="forgotPhone" placeholder="Enter your Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="forgotEmail">විද්‍යුත් ලිපිනය (Email Address):</label>
+                <input type="email" id="forgotEmail" placeholder="Enter your Email Address" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="button" class="close-btn" onclick="closeForgotForm()">Close</button>
+        </form>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div class="confirmation-message hidden" id="confirmationMessage">
+        <p>Your request has been submitted. A new password and username will be sent to your email address within 15 minutes.</p>
+        <button type="button" class="close-btn" onclick="closeConfirmationMessage()">Close</button>
+    </div>
+
+    <footer>
+        © All rights reserved. Macinternal. Solution by Sasith and Sadiya  
+        Kotugoda (11390) - Sri Lanka
+    </footer>
+
     <script src="script.js"></script>
-    <script>
-        const formData = JSON.parse(localStorage.getItem("formData"));
-
-        if (formData) {
-            const adminData = document.getElementById("adminData");
-            let html = "";
-
-            for (const key in formData) {
-                html += `
-                    <div class="data-item">
-                        <label>${key}:</label>
-                        <span>${formData[key]}</span>
-                    </div>
-                `;
-            }
-
-            // Add "User Allowed" and "User Not Allowed" buttons
-            html += `
-                <div class="action-buttons">
-                    <button onclick="sendEmail('User Allowed')">User Allowed</button>
-                    <button onclick="sendEmail('User Not Allowed')">User Not Allowed</button>
-                </div>
-            `;
-
-            adminData.innerHTML = html;
-        } else {
-            adminData.innerHTML = "<p>No data found.</p>";
-        }
-
-        function sendEmail(action) {
-            const formData = JSON.parse(localStorage.getItem("formData"));
-            const email = formData.email;
-
-            // Simulate sending an email (for demo purposes)
-            alert(`Email sent to ${email}: ${action}`);
-        }
-    </script>
 </body>
 </html>
