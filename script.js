@@ -50,16 +50,3 @@ document.getElementById('signupLink').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('signupForm').classList.remove('hidden');
 });
-
-// Ensure only one form is displayed at a time
-document.getElementById('forgotLink').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('signupForm').classList.add('hidden'); // Hide sign-up form
-    document.getElementById('forgotForm').classList.remove('hidden'); // Show forgot form
-});
-
-document.getElementById('signupLink').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('forgotForm').classList.add('hidden'); // Hide forgot form
-    document.getElementById('signupForm').classList.remove('hidden'); // Show sign-up form
-});
