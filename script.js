@@ -1,64 +1,65 @@
-// Show the Sign Up Form
-document.getElementById("signupLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the link from redirecting
-    document.getElementById("signupForm").classList.remove("hidden");
+// Show Forgot Password/Username Form
+document.getElementById('forgotLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('forgotForm').classList.remove('hidden');
 });
 
-// Close the Sign Up Form
-function closeForm() {
-    document.getElementById("signupForm").classList.add("hidden");
+// Close Forgot Password/Username Form
+function closeForgotForm() {
+    document.getElementById('forgotForm').classList.add('hidden');
 }
 
-// Calculate Price
+// Handle Forgot Password/Username Form Submission
+document.getElementById('forgotPasswordForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get form data
+    const idNumber = document.getElementById('forgotIdNumber').value;
+    const phone = document.getElementById('forgotPhone').value;
+    const email = document.getElementById('forgotEmail').value;
+
+    // Simulate sending data to the server (you can replace this with an actual API call)
+    console.log('ID Number:', idNumber);
+    console.log('Phone:', phone);
+    console.log('Email:', email);
+
+    // Show confirmation message
+    document.getElementById('forgotForm').classList.add('hidden');
+    document.getElementById('confirmationMessage').classList.remove('hidden');
+});
+
+// Close Confirmation Message
+function closeConfirmationMessage() {
+    document.getElementById('confirmationMessage').classList.add('hidden');
+}
+
+// Existing JavaScript for Sign Up Form
 function calculatePrice() {
-    let shares = document.getElementById("shares").value;
-    document.getElementById("price").value = shares * 5000;
+    // Example logic for calculating price (replace with your actual logic)
+    const shares = document.getElementById('shares').value;
+    const pricePerShare = 100; // Replace with your actual price per share
+    const totalPrice = shares * pricePerShare;
+    document.getElementById('price').value = totalPrice;
 }
 
-// Handle Registration Form Submission
-document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+function closeForm() {
+    document.getElementById('signupForm').classList.add('hidden');
+}
 
-    // Collect form data
-    const formData = {
-        referenceNumber: document.getElementById("referenceNumber").value,
-        idNumber: document.getElementById("idNumber").value,
-        fullName: document.getElementById("fullName").value,
-        address: document.getElementById("address").value,
-        district: document.getElementById("district").value,
-        email: document.getElementById("email").value,
-        phone1: document.getElementById("phone1").value,
-        phone2: document.getElementById("phone2").value,
-        shares: document.getElementById("shares").value,
-        price: document.getElementById("price").value,
-        username: document.getElementById("regUsername").value,
-        password: document.getElementById("regPassword").value,
-    };
-
-    // Save data to localStorage
-    localStorage.setItem("formData", JSON.stringify(formData));
-
-    // Redirect to index.html
-    window.location.href = "index.html";
+document.getElementById('signupLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('signupForm').classList.remove('hidden');
 });
 
-// Handle Login Form Submission
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+// Ensure only one form is displayed at a time
+document.getElementById('forgotLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('signupForm').classList.add('hidden'); // Hide sign-up form
+    document.getElementById('forgotForm').classList.remove('hidden'); // Show forgot form
+});
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    const formData = JSON.parse(localStorage.getItem("formData"));
-
-    if (formData && formData.username === username && formData.password === password) {
-        alert("Login successful!");
-        // Redirect to user dashboard
-        window.location.href = "user-dashboard.html";
-    } else if (username === "admin" && password === "admin123") {
-        // Redirect to admin page
-        window.location.href = "admin.html";
-    } else {
-        alert("Invalid username or password!");
-    }
+document.getElementById('signupLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('forgotForm').classList.add('hidden'); // Hide forgot form
+    document.getElementById('signupForm').classList.remove('hidden'); // Show sign-up form
 });
